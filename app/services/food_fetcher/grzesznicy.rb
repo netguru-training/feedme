@@ -4,9 +4,9 @@ module FoodFetcher
   class Grzesznicy
 
     def fetch_food
-      # binding.pry
+      binding.pry
       page = Nokogiri::HTML(open("http://www.grzesznicy.eu/menu.html"))
-      # binding.pry
+      binding.pry
       2+2
     end
 
