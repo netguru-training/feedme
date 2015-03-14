@@ -75,6 +75,7 @@ group :development, :test do
   gem 'pry-stack_explorer'
   gem 'awesome_print'
   gem 'dotenv-rails'
+  gem 'rails_config'
 end
 
 group :production do

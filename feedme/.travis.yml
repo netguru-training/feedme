@@ -1,7 +1,0 @@
-deploy:
-  provider: heroku
-  api_key:
-    secure: <%= Settings.travis_api_key %>
-  app: feedme-c
-  on:
-    repo: netguru-training/feedme
