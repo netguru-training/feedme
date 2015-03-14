@@ -2,3 +2,5 @@ travis_api_key: DYffGDiOrGewaepVf6B57jknJpybV6O4DviInmOe9lWMPUPpQIbS/W+KczXffWMY
 mailgun_domain: sandboxaf40cd7a2fbe408081b4e2ff2bfc3090.mailgun.org
 mailgun_user_name: postmaster@sandboxaf40cd7a2fbe408081b4e2ff2bfc3090.mailgun.org
 mailgun_password: 02180331be48c53be5016736ebe59563
+github_id: 1bd71933cd3f5b6de9a5
+github_secret: 5e156cc03b0b7b0804d767f4b7123b289a9871c0
