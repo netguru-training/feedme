@@ -1,0 +1,4 @@
+deploy:
+  provider: heroku
+  app: feedme-c
+  api_key: d05d09d1-ab14-448a-9553-b1c98bdff901
