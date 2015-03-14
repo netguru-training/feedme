@@ -32,8 +32,6 @@ gem 'jbuilder', '~> 2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'devise'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -52,6 +50,11 @@ gem 'high_voltage'
 gem 'pg'
 gem 'simple_form'
 
+gem 'devise'
+gem 'cancancan'
+gem 'omniauth'
+gem 'omniauth-github'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
@@ -67,6 +70,12 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+  gem 'awesome_print'
+  gem 'dotenv-rails'
 end
 
 group :production do
@@ -80,4 +89,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'pry'
 end
-
