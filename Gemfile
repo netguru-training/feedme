@@ -32,12 +32,6 @@ gem 'jbuilder', '~> 2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'devise'
-gem 'cancancan'
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'omniauth-github'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -55,6 +49,11 @@ gem 'haml-rails'
 gem 'high_voltage'
 gem 'pg'
 gem 'simple_form'
+
+gem 'devise'
+gem 'cancancan'
+gem 'omniauth'
+gem 'omniauth-github'
 
 group :development do
   gem 'better_errors'
@@ -76,6 +75,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
   gem 'awesome_print'
+  gem 'dotenv-rails'
 end
 
 group :production do
