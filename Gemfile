@@ -43,7 +43,6 @@ group :development, :test do
   gem 'spring'
 end
 
-
 gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'high_voltage'
