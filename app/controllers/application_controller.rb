@@ -4,14 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def authenticate_admin_user!
-    if user_signed_in?
-      if current_user.admin
-        true
-      end
+    if ( user_signed_in? && current_user.admin )
+      true
     else
       return redirect_to new_user_session_path
     end
-  else
-    return redirect_to new_user_session_path
- end
+  end
 end
