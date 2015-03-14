@@ -1,12 +1,15 @@
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe FoodController, type: :controller do
-
-  describe FoodController do
-    describe "#fetch_food" do
-      it  'expect respond wiec an http 200 status' do
-        get :fetch_food
-        expect(response.status).to eql 200
+RSpec.describe FoodsController, type: :controller do
+  
+  describe FoodsController do
+    describe '#fetch' do
+      context 'when passed correct web name' do
+        it 'reesponds with an http 200 status' do
+          ::FoodFetcher::FoodFetcherFactory.any_instance.stub(:fetch_food).and_return(true, '10')
+          get :fetch, {web_name: 'web'}
+          expect(response.status).to eql 200
+        end
       end 
     end
   end
