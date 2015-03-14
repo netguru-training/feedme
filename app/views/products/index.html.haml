@@ -1,0 +1,18 @@
+%h2 Food here
+
+= search_form_for @search do |f|
+  .field
+    = f.label :name_cont, "Name"
+    = f.text_field :name_cont
+    = f.submit "Search", class: "btn btn-submit"
+
+%table.table.table-striped.table-hover#products
+  %tr
+    %th Product name
+    %th Product price
+
+  - @products.each do |product|
+    %tr
+      %td= link_to(product.name, product)
+      %td= number_to_currency(product.price)
+
