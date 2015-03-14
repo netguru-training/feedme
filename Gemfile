@@ -88,4 +88,5 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'pry'
+  gem 'vcr', '~> 2.9.3'
 end
