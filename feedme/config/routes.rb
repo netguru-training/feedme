@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-=======
-  devise_for :users
->>>>>>> 4aa94d801e90420b0d63137ae0b009cf004cbb02
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
