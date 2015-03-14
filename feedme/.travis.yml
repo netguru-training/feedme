@@ -1,4 +1,7 @@
 deploy:
   provider: heroku
+  api_key:
+    secure: DYffGDiOrGewaepVf6B57jknJpybV6O4DviInmOe9lWMPUPpQIbS/W+KczXffWMYPoO5VhaMdtOweJudTXOBm/UCwjVhQ908pECgzDiFrzV31EwMoEw+qV0CC8WaH7hWynarfbYKH3Uv492T2uS5o+Rng33I008DXNji8WurO/U=
   app: feedme-c
-  api_key: d05d09d1-ab14-448a-9553-b1c98bdff901
+  on:
+    repo: netguru-training/feedme
