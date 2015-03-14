@@ -1,1 +1,12 @@
 %h2 Food here
+%table.table.table-striped.table-hover
+  %tr
+    %th Name
+    %th Price
+  - products.each do |product|
+    %tr
+      %td
+        = product.name
+      %td.price
+        = product.price
+
