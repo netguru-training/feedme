@@ -12,6 +12,6 @@ RSpec.describe Admin::PanelsController, type: :controller do
     expect(admin).to be_admin
   end
 
- 
+
 
 end

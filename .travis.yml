@@ -1,5 +1,6 @@
 before_script:
-  - cp config/database.yml.travis config/database.yml
+  - cp config/database.yml.sample config/database.yml
+  - psql -c 'create database feedme_test;' -U postgres
 deploy:
   provider: heroku
   api_key:

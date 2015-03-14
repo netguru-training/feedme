@@ -11,17 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150314135925) do
+ActiveRecord::Schema.define(version: 20150314153049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "products", force: :cascade do |t|
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "name"
     t.float    "price"
     t.integer  "restaurant_id"
+    t.boolean  "last_version",  default: false
   end
 
   add_index "products", ["restaurant_id"], name: "index_products_on_restaurant_id", using: :btree

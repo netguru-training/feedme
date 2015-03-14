@@ -23,6 +23,12 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'httparty', '~> 0.13.3'
 
+gem 'mechanize', '~> 2.7.3'
+
+gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4.2"
+
+gem "geokit-rails"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -90,4 +96,5 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'pry'
+  gem 'vcr', '~> 2.9.3'
 end
