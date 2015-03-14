@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe  FoodFetcher::AdapterFactory do
+describe FoodFetcher::AdapterFactory do
   describe "#return_adapter" do
     context "when object exists" do
       let(:subject) { FoodFetcher::AdapterFactory.new }
