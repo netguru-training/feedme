@@ -26,6 +26,8 @@ gem 'mechanize', '~> 2.7.3'
 
 gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4.2"
 
+gem "geokit-rails"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
