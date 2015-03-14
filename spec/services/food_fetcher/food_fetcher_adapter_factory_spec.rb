@@ -16,10 +16,9 @@ describe  FoodFetcher::AdapterFactory do
       end
       context "other" do
         it "raise error" do
-          expect{ subject.return_adapter("other") }.to raise_error(RuntimeError)
+          expect{ subject.return_adapter("other") }.to raise_error(FoodFetcher::AdapterFactory::MissingFoodObjectError)
         end
       end
     end
   end
-
 end
