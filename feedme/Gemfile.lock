@@ -152,6 +152,8 @@ GEM
       rails_stdout_logging
     rails_apps_pages (0.5.15)
     rails_apps_testing (0.3.12)
+    rails_config (0.4.2)
+      activesupport (>= 3.0)
     rails_layout (1.0.25)
     rails_serve_static_assets (0.0.4)
     rails_stdout_logging (0.0.3)
@@ -254,6 +256,7 @@ DEPENDENCIES
   rails_12factor
   rails_apps_pages
   rails_apps_testing
+  rails_config
   rails_layout
   rspec-rails
   sass-rails (~> 5.0)
