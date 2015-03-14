@@ -4,8 +4,8 @@ module FoodFetcher
   class Pyszne
     RESTAURANT_NAME = 'Pyszne'
 
-    def fetch_food
-      page = Nokogiri::HTML(open("https://pyszne.pl/pracownia-pizzy-rzeszow#!"))
+    def fetch_food_and_save
+      page = Nokogiri::HTML(open("https://pyszne.pl/pracownia-pizzy-rzeszow"))
       page.css('div.yd-latebinding.yd-jig-menu-meal-add.tr').each do |product|
         name = product.children[1].text.scan(/\w+/).join(' ')
         price = page.css('div.yd-latebinding.yd-jig-menu-meal-add.tr')[0].children[3]
