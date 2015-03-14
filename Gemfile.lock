@@ -314,14 +314,11 @@ DEPENDENCIES
   omniauth
   omniauth-github
   pg
-<<<<<<< HEAD
   pry
-=======
   pry-byebug
   pry-doc
   pry-rails
   pry-stack_explorer
->>>>>>> 16fc13cf8307aac89f073fa24df53b2c8c3c12c9
   quiet_assets
   rails (= 4.2.0)
   rails_12factor
