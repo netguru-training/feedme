@@ -43,7 +43,6 @@ group :development, :test do
   gem 'spring'
 end
 
-
 gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'high_voltage'
@@ -88,4 +87,5 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'pry'
 end

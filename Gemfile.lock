@@ -316,6 +316,7 @@ DEPENDENCIES
   omniauth
   omniauth-github
   pg
+  pry
   pry-byebug
   pry-doc
   pry-rails
