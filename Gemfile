@@ -67,6 +67,11 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+  gem 'awesome_print'
 end
 
 group :production do
@@ -79,4 +84,3 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
-
