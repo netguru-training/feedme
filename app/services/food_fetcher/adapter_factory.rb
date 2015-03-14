@@ -3,9 +3,9 @@ module FoodFetcher
 
     def return_adapter(name)
       case name
-      when grzesznicy then
+      when "grzesznicy" then
         FoodFetcher::Grzesznicy.new
-      when pyszne
+      when "pyszne"
         FoodFetcher::Pyszne.new
       else
         raise "Missing adapter for name #{name}"

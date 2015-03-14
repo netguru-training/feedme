@@ -4,12 +4,20 @@ describe  FoodFetcher::AdapterFactory do
   describe "#return_adapter" do
     context "when object exists" do
       let(:subject) { FoodFetcher::AdapterFactory.new }
-      it "creates new service" do
-        2+2
-        binding.pry
-        2+2
-        # expect(subject.return_adapter(grzesznicy))
-
+      context "grzesznicy" do
+        it "creates new grzesznicy class" do
+          expect(subject.return_adapter("grzesznicy").class).to eq FoodFetcher::Grzesznicy
+        end
+      end
+      context "pyszne" do
+        it "creates new pyszne class" do
+          expect(subject.return_adapter("pyszne").class).to eq FoodFetcher::Pyszne
+        end
+      end
+      context "other" do
+        it "raise error" do
+          expect{ subject.return_adapter("other") }.to raise_error(RuntimeError)
+        end
       end
     end
   end
