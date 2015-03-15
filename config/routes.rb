@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
   resources :food_orders, only: [:show, :index] do
     post 'finalize'
+    post 'deliver'
   end
 
   root 'products#index'

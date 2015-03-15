@@ -6,10 +6,20 @@
     %th Finalized at
     %th Delivered at
     %th
+      - if current_user.admin? 
+        Owner
+    %th
 
   - @orders.each do |order|
     %tr
       %td= order.status
       %td= order.finalized_at
       %td= order.delivered_at
-      %td= link_to 'Show', food_order_path(order), class: "btn btn-default"
+      %td
+        - if current_user.admin? 
+          = order.user.email
+      %td
+        = link_to 'Show', food_order_path(order), class: "btn btn-default"
+        - if current_user.admin? && order.finalized?
+          = link_to 'Mark as delivered', food_order_deliver_path(order), 
+          class: "btn btn-success", method: :post
