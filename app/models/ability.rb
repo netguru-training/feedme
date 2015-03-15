@@ -8,7 +8,7 @@ class Ability
       can :manage, :all
     else
       can :manage, OrderItem
-      can :manage, FoodOrder
+      can [:index, :show, :finalize], FoodOrder, user_id: user.id
       can :manage, FavouriteProduct
       can [:favourite, :unfavourite], Product
     end
