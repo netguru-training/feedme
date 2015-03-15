@@ -1,5 +1,9 @@
 %html
   %head
   %body
-    %p 
-      food is ready
+    %p
+      Hello, ordered products:
+    %ul
+      - @products.each do |product|
+        %li= "#{product.name}, #{product.price}"
+      

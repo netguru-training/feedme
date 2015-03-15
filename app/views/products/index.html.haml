@@ -1,21 +1,28 @@
 %h2 Food here
 
 = search_form_for @search do |f|
-  .field
-    = f.label :name_cont, "Name"
+  .col-md-6.field
+    = f.label :name_cont, "Food"
     = f.text_field :name_cont
-    = f.submit "Search", class: "btn btn-submit"
-%br    
+  .col-md-6.field
+    = label_tag :location, "Location (10km radius)"
+    = text_field_tag 'location', @search_tag_value
+  = f.submit "Search", class: "btn btn-submit"
+  = link_to 'Clear', root_path, class: "btn btn-warning"
+%br
 - if current_user && current_user.admin?
-  .row 
+  .row
     .col-md-12
       = form_tag('/foods/fetch', method: 'get') do
         .col-md-2
           = select_tag 'restaurant', options_for_select([ 'Grzesznicy', 'Pyszne' ], 'Grzesznicy'), { :class => 'col-md-3 form-control' }
-        = submit_tag 'Fetch food', class: 'btn btn-submit'   
-%br  
+        = submit_tag 'Fetch food', class: 'btn btn-submit'
+
+%br
+
 %table.table.table-striped.table-hover#products
   %tr
+<<<<<<< HEAD
     %th Product name
     %th Product price
     %th Product rate
@@ -27,7 +34,20 @@
       %td= number_to_currency(product.price)
       %td= product.average_rating
       %td
+=======
+    %th Food
+    %th Price
+    %th Restaurant
+    %th Order
+  - @products.each do |product|
+    %tr
+      %td= link_to(product.name, product)
+      %td= "#{number_with_precision(product.price, precision: 2)} zł"
+      %td= product.restaurant.name
+      %td.buttons
+>>>>>>> 94c18211b91746e4417930e5caa27e8810ef9ef5
         - if user_signed_in?
-          = link_to "Add to order", product_order_items_path(product), 
+          = link_to "Add to order", product_order_items_path(product),
             method: :post, action: :create, class: "btn btn-primary"
-
+          = link_to "Add as favourite",  product_favourite_path(product),
+            method: :post, action: :create, class: "btn btn-success"

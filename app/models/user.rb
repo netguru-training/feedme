@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :food_orders
   has_many :ratings
+  has_many :favourite_products
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

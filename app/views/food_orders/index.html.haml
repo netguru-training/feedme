@@ -1,0 +1,15 @@
+%h2 Orders history
+
+%table.table.table-striped.table-hover
+  %tr
+    %th Status
+    %th Finalized at
+    %th Delivered at
+    %th
+
+  - @orders.each do |order|
+    %tr
+      %td= order.status
+      %td= order.finalized_at
+      %td= order.delivered_at
+      %td= link_to 'Show', food_order_path(order), class: "btn btn-default"

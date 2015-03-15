@@ -11,16 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150315105002) do
+=======
+ActiveRecord::Schema.define(version: 20150315112931) do
+>>>>>>> 94c18211b91746e4417930e5caa27e8810ef9ef5
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "food_orders", force: :cascade do |t|
-    t.string   "status"
+  create_table "favourite_products", force: :cascade do |t|
+    t.integer  "product_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  add_index "favourite_products", ["product_id"], name: "index_favourite_products_on_product_id", using: :btree
+  add_index "favourite_products", ["user_id"], name: "index_favourite_products_on_user_id", using: :btree
+
+  create_table "food_orders", force: :cascade do |t|
+    t.string   "status"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.datetime "finalized_at"
+    t.datetime "delivered_at"
   end
 
   add_index "food_orders", ["user_id"], name: "index_food_orders_on_user_id", using: :btree
@@ -62,22 +78,25 @@ ActiveRecord::Schema.define(version: 20150315105002) do
     t.string   "phone_number"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "address"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin"
+    t.boolean  "admin",                  default: false
     t.string   "provider"
     t.string   "uid"
   end
