@@ -6,7 +6,10 @@ class FoodOrdersController < ApplicationController
   end
 
   def finalize
-    current_user.active_order.finalize!
+    order = current_user.active_order
+    order.finalize!
+    UserNotifier.notification_email(current_user, order.products).deliver
+
     redirect_to products_path, notice: "Finalized order"
   end
 end
