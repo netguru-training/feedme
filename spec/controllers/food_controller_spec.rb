@@ -1,5 +1,4 @@
 require 'spec_helper'
-include Devise::TestHelpers
 
 RSpec.describe FoodsController, type: :controller do
 
@@ -10,7 +9,7 @@ RSpec.describe FoodsController, type: :controller do
           sign_in FactoryGirl.create(:admin)
         end
 
-        subject { get :fetch, {web_name: 'web'} }        
+        subject { get :fetch, {web_name: 'web'} }
 
         it 'reesponds with an http 200 status' do
           ::FoodFetcher::FoodFetcherFactory.any_instance.stub(:fetch_food_and_save).and_return(true, '10')

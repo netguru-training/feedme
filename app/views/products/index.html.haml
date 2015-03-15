@@ -42,12 +42,16 @@
   - @products.each do |product|
     %tr
       %td= link_to(product.name, product)
-      %td= "#{number_with_precision(product.price, precision: 2)} zł"
+      %td.price= "#{number_with_precision(product.price, precision: 2)} zł"
       %td= product.restaurant.name
       %td.buttons
 >>>>>>> 94c18211b91746e4417930e5caa27e8810ef9ef5
         - if user_signed_in?
           = link_to "Add to order", product_order_items_path(product),
             method: :post, action: :create, class: "btn btn-primary"
-          = link_to "Add as favourite",  product_favourite_path(product),
-            method: :post, action: :create, class: "btn btn-success"
+          - if product.favourite(current_user.id)
+            = link_to "Remove from favourites",  product_unfavourite_path(product),
+              method: :post, action: :create, class: "btn btn-warning"
+          - else
+            = link_to "Add as favourite",  product_favourite_path(product),
+              method: :post, action: :create, class: "btn btn-success"
