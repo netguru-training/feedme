@@ -42,7 +42,7 @@
   - @products.each do |product|
     %tr
       %td= link_to(product.name, product)
-      %td.price= "#{number_with_precision(product.price, precision: 2)} zł"
+      %td.price= "#{number_with_precision(product.price, precision: 2)}zł"
       %td= product.restaurant.name
       %td.buttons
 >>>>>>> 94c18211b91746e4417930e5caa27e8810ef9ef5

@@ -1,6 +1,5 @@
 %h1= @product.name
-<<<<<<< HEAD
-%p= @product.price
+%p= "#{number_with_precision(@product.price, precision: 2)}zł"
 - unless current_user && @product.has_rated?(current_user)
   = simple_form_for [@product, @rating], html: { class: 'form-horizontal' } do |f|
     .form-inputs
@@ -10,8 +9,7 @@
       .form-group
         .col-md-3
           = f.submit 'Save', class: 'btn btn-default'
-=======
-%p= "#{number_with_precision(@product.price, precision: 2)} zł"
->>>>>>> 94c18211b91746e4417930e5caa27e8810ef9ef5
+
+
 
 =link_to "Back", products_path
