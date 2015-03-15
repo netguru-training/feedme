@@ -8,10 +8,8 @@ class Product < ActiveRecord::Base
   scope :last_version, -> { where last_version: true }
 
   def self.top
-    unscoped.joins(:ratings)
-      .select("products.id, products.name, products.price, avg(ratings.value) as average_raiting, count(ratings.id) as ratings_count")
-      .group("products.id")
-      .order("average_raiting DESC, ratings_count DESC")
+    ids = OrderItem.group(:product_id).size.sort_by { |key, value| }.reverse.to_h.keys[0..10]
+    where(id: ids)
   end
 
   def average_rating
