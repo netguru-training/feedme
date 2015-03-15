@@ -1,15 +1,26 @@
 %h2 Orders history
 
-%table.table.table-striped.table-hover
-  %tr
-    %th Status
-    %th Finalized at
-    %th Delivered at
-    %th
-
-  - @orders.each do |order|
+%table.table.table-striped.table-hover#orders_history
+  %thead
     %tr
-      %td= order.status
-      %td= order.finalized_at
-      %td= order.delivered_at
-      %td= link_to 'Show', food_order_path(order), class: "btn btn-default"
+      %th Status
+      %th Finalized at
+      %th Delivered at
+      %th
+        - if current_user.admin? 
+          Owner
+      %th
+  %tbody
+    - @orders.each do |order|
+      %tr
+        %td= order.status
+        %td= order.finalized_at
+        %td= order.delivered_at
+        %td
+          - if current_user.admin? 
+            = order.user.email
+        %td
+          = link_to 'Show', food_order_path(order), class: "btn btn-default"
+          - if current_user.admin? && order.finalized?
+            = link_to 'Mark as delivered', food_order_deliver_path(order), 
+            class: "btn btn-success", method: :post

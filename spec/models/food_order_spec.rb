@@ -8,7 +8,7 @@ describe FoodOrder do
 
     it "sets status to finalized" do
       order.finalize!
-      expect(order.status).to eq("finalized")
+      expect(order).to be_finalized
     end
 
     it "sets finalized_at" do

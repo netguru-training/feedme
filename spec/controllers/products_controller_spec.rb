@@ -1,7 +1,26 @@
 require 'rails_helper'
 
 RSpec.describe ProductsController, type: :controller do
+  describe 'GET index' do
+    it 'renders the index template' do
+      get :index
+      expect(response).to render_template('index')
+    end
+    it 'assigns @products' do
+      get :index
+      expect(assigns(:products)).to match_array(Product.all)
+    end
 
+    it 'filters @products by location' do
+      get :index, {location: 'rzeszow'}
+      expect(assigns(:products).count).to eq 2
+    end
+
+    it 'filters @products by product name' do
+      get :index, {q: { name_cont: 'pizza'} }
+      expect(assigns(:products).count).to eq 1
+    end
+  end
   describe 'POST ratings' do
     let(:product) { FactoryGirl.create :product }
     let(:user) { FactoryGirl.create :user }

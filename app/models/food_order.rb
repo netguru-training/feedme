@@ -10,6 +10,10 @@ class FoodOrder < ActiveRecord::Base
     status.to_sym == :active
   end
 
+  def finalized?
+    status.to_sym == :finalized
+  end
+
   def finalize!
     self.status = :finalized
     self.finalized_at = Time.now
