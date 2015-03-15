@@ -36,6 +36,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'rails_admin'
 gem 'rails_config'
+gem 'draper', '~> 1.3'
 
 group :development do
   gem 'better_errors'

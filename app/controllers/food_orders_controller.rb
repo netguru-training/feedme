@@ -2,7 +2,7 @@ class FoodOrdersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @orders = current_user.food_orders
+    @orders = current_user.food_orders.decorate
   end
 
   def show

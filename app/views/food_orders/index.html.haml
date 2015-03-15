@@ -9,8 +9,7 @@
 
   - @orders.each do |order|
     %tr
-      %td
-        .label{ class: order.label_class }= order.status
-      %td= order.finalized_at.try(:strftime, "%d-%m-%Y %H:%M")
-      %td= order.delivered_at.try(:strftime, "%d-%m-%Y %H:%M")
+      %td= order.status
+      %td= order.finalized_at
+      %td= order.delivered_at
       %td= link_to 'Show', food_order_path(order), class: "btn btn-default"

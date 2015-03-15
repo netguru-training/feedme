@@ -21,12 +21,4 @@ class FoodOrder < ActiveRecord::Base
     self.delivered_at = Time.now
     self.save
   end
-
-  def label_class
-    case status.to_sym
-      when :active then "label-info"
-      when :finalized then "label-primary"
-      when :delivered then "label-success"
-    end
-  end
 end
