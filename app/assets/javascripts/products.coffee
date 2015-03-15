@@ -15,5 +15,10 @@ $(document).on 'ready page:load', ->
     step: 1
     size: 'xs'
     starCaptions: starCaptions
+
+  $('#products').dataTable
+    pagingType: 'full_numbers'
+    bSearchable: false
+  $('#products_filter').css("display", "none")  
   return
   
