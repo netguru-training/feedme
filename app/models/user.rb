@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:github]
 
   has_many :food_orders
+  has_many :ratings
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -17,4 +18,5 @@ class User < ActiveRecord::Base
   def active_order
     food_orders.active.last || FoodOrder.create(status: :active, user: self)
   end
+  
 end

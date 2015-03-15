@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   resources :products do
     resources :order_items, only: [:create, :destroy]
+    # member do
+    post 'ratings'
+    # end
   end
   resource :food_order, only: :show do
     post 'finalize'
