@@ -2,7 +2,7 @@ require 'spec_helper'
 include Devise::TestHelpers
 
 RSpec.describe FoodsController, type: :controller do
-  
+
   describe FoodsController do
     describe '#fetch' do
       context 'when passed correct web name' do
@@ -16,7 +16,7 @@ RSpec.describe FoodsController, type: :controller do
           ::FoodFetcher::FoodFetcherFactory.any_instance.stub(:fetch_food_and_save).and_return(true, '10')
           expect(subject).to redirect_to(products_url)
         end
-      end 
+      end
     end
   end
 
