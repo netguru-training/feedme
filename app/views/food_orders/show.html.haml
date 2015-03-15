@@ -1,15 +1,19 @@
-%h2 Currently ordered products
+%h2 Ordered products
 %table.table.table-striped.table-hover
   %tr
     %th Product name
     %th Product price
     %th
 
-  - @order_items.each do |order_item|
+  - @order.order_items.each do |order_item|
     %tr
       %td= order_item.name
       %td= number_to_currency("#{number_with_precision(order_item.price, precision: 2)} zł")
-      %td= link_to "Remove", product_order_item_path(order_item.product, order_item),
-        method: :delete, class: "btn btn-warning"
+      %td
+        - if @order.active?
+          = link_to "Remove", product_order_item_path(order_item.product, order_item),
+            method: :delete, class: "btn btn-warning"
 
-= link_to "Finalize", finalize_food_order_path, method: :post, class: "btn btn-success btn-lg"
+- if @order.active?
+  = link_to "Finalize", food_order_finalize_path(current_user.active_order), 
+    method: :post, class: "btn btn-success btn-lg"

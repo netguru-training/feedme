@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     post '/favourite' => "products#favourite"
     resources :order_items, only: [:create, :destroy]
   end
-  resource :food_order, only: :show do
+  resources :food_orders, only: [:show, :index] do
     post 'finalize'
   end
 

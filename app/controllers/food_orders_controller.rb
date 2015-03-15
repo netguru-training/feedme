@@ -1,8 +1,12 @@
 class FoodOrdersController < ApplicationController
   load_and_authorize_resource
 
+  def index
+    @orders = current_user.food_orders
+  end
+
   def show
-    @order_items = current_user.active_order.order_items
+    @order = FoodOrder.find(params[:id])
   end
 
   def finalize
@@ -10,6 +14,6 @@ class FoodOrdersController < ApplicationController
     order.finalize!
     UserNotifier.notification_email(current_user, order.products).deliver
 
-    redirect_to products_path, notice: "Finalized order"
+    redirect_to food_orders_path, notice: "Finalized order"
   end
 end

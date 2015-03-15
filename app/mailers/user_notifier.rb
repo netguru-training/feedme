@@ -4,6 +4,6 @@ class UserNotifier < ApplicationMailer
   def notification_email(user, products)
     @user = user
     @products = products
-    mail(:to => @user.email, :subject => 'food is ready')
+    mail(:to => @user.email, :subject => 'FeedMe - Your order is started')
   end
 end
