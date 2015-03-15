@@ -15,7 +15,7 @@ module FoodFetcher
           parse_css(page)
         end
       end
-      Restaurant.find_or_create_by(name: RESTAURANT_NAME).products.last_version.size
+      return true, Restaurant.find_or_create_by(name: RESTAURANT_NAME).products.last_version.size
     end
 
     def parse_css(page, td_row: 2)

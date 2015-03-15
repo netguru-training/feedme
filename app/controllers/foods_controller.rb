@@ -1,15 +1,16 @@
 class FoodsController < ApplicationController
+  before_action :authenticate_admin_user!
   respond_to :html
 
   def index
   end
 
   def fetch
-    status, quantity = FoodFetcher::FoodFetcherFactory.new.fetch_food(web_name: params[:web_name])
+    status, quantity = FoodFetcher::FoodFetcherFactory.new.fetch_food_and_save(web_name: params[:restaurant])
     if status
-      redirect_to root_path, notice: "#{quantity} foods position has been fetched", status: :ok
+      redirect_to products_path, notice: "#{quantity} foods position has been fetched"
     else
-      redirect_to root_path, notice: 'Sorry something went wrong', status: :ok
+      redirect_to products_path, notice: 'Sorry something went wrong'
     end
   end
 
