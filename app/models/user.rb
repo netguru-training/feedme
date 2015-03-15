@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:github]
+    :recoverable, :rememberable, :trackable, :validatable,
+    :omniauthable, :omniauth_providers => [:github]
 
   has_many :food_orders
   has_many :ratings
@@ -19,5 +19,9 @@ class User < ActiveRecord::Base
   def active_order
     food_orders.active.last || FoodOrder.create(status: :active, user: self)
   end
-  
+
+  def top_rated_products
+    ratings.map { |rate| rate.product.name }.join(", ")
+  end
+
 end

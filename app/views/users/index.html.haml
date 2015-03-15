@@ -1,0 +1,14 @@
+- if @users.any?
+  %h1 Listing Users
+  %table.table
+    %tr
+      %th Email
+      %th Orders
+      %th Top rated products
+    - @users.each do |user|
+      %tr
+        %td= link_to user.email, user_path(user.id)
+        %td= user.food_orders.size
+        %td= user.top_rated_products
+- else
+  %h1 Sorry, there's no users yet.
