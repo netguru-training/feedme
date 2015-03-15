@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/manager', as: 'rails_admin'
   namespace :admin do
     root to: "panels#index"
     resources :users
