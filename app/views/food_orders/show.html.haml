@@ -1,0 +1,15 @@
+%h2 Currently ordered products
+%table.table.table-striped.table-hover
+  %tr
+    %th Product name
+    %th Product price
+    %th
+
+  - @order_items.each do |order_item|
+    %tr
+      %td= order_item.name
+      %td= number_to_currency(order_item.price)
+      %td= link_to "Remove", product_order_item_path(order_item.product, order_item), 
+        method: :delete, class: "btn btn-warning"
+
+= link_to "Finalize", finalize_food_order_path, method: :post, class: "btn btn-success btn-lg"

@@ -10,9 +10,14 @@
   %tr
     %th Product name
     %th Product price
+    %th
 
   - @products.each do |product|
     %tr
       %td= link_to(product.name, product)
       %td= number_to_currency(product.price)
+      %td
+        - if user_signed_in?
+          = link_to "Add to order", product_order_items_path(product), 
+            method: :post, action: :create, class: "btn btn-primary"
 

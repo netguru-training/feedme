@@ -4,4 +4,5 @@ class Product < ActiveRecord::Base
 
   belongs_to :restaurant
   scope :last_version, -> { where last_version: true}
+
 end
