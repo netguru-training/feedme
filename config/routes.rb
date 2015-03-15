@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "panels#index"
     resources :users
-    resource :restaurants
-    resource :products
+    resources :restaurants
+    resources :products
 
   end
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

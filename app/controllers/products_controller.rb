@@ -1,16 +1,28 @@
 class ProductsController < ApplicationController
 
   def index
-    @search = Product.search(params[:q])
+    @products = Product.where(restaurant_id: restaurants)
+    @search = @products.search(params[:q])
     @products = @search.result
+    @search_tag_value = params[:location]
   end
 
   def show
     @product = Product.find(params[:id])
   end
 
+
+  def restaurants
+    if params[:location].blank?
+      Restaurant.all
+    else
+      Restaurant.within(10, :origin => params[:location])
+    end
+  end
+
   def favourite
     2+2
     2+2
   end
+
 end
