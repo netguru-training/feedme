@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe FoodFetcher::AdapterFactory do
   describe "#return_adapter" do

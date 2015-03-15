@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe FoodFetcher::FoodFetcherFactory do
   describe "#fetch_food" do
