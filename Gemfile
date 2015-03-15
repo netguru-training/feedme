@@ -35,6 +35,7 @@ gem 'cancancan'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'rails_admin'
+gem 'rails_config'
 
 group :development do
   gem 'better_errors'
@@ -60,7 +61,6 @@ group :development, :test do
   gem 'pry-stack_explorer'
   gem 'awesome_print'
   gem 'dotenv-rails'
-  gem 'rails_config'
 end
 
 group :production do
