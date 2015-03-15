@@ -6,7 +6,6 @@ class FoodsController < ApplicationController
   end
 
   def fetch
-    binding.pry
     status, quantity = FoodFetcher::FoodFetcherFactory.new.fetch_food_and_save(web_name: params[:restaurant])
     if status
       redirect_to products_path, notice: "#{quantity} foods position has been fetched"

@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:github]
 
   has_many :food_orders
+  has_many :favourite_products
+
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
