@@ -1,14 +1,15 @@
 %h1= @product.name
 %p= number_to_currency(@product.price, :unit=>'zł ')
-- unless current_user && @product.has_rated?(current_user)
-  = simple_form_for [@product, @rating], html: { class: 'form-horizontal' } do |f|
-    .form-inputs
-      .form-group
-        = f.label :taste, class: 'col-md-3 control-label'
-        = f.input :value, collection: 1..5, label: false, class: 'form-control', wrapper_html: { class: 'col-md-4' }
-      .form-group
-        .col-md-3
-          = f.submit 'Save', class: 'btn btn-default'
+- if current_user
+  - unless @product.has_rated?(current_user)
+    = simple_form_for [@product, @rating], html: { class: 'form-horizontal' } do |f|
+      .form-inputs
+        .form-group
+          = f.label :taste, class: 'col-md-3 control-label'
+          = f.input :value, collection: 1..5, label: false, class: 'form-control', wrapper_html: { class: 'col-md-4' }
+        .form-group
+          .col-md-3
+            = f.submit 'Save', class: 'btn btn-default'
 
 
 
