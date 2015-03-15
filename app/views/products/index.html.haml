@@ -22,7 +22,6 @@
 
 %table.table.table-striped.table-hover#products
   %tr
-<<<<<<< HEAD
     %th Product name
     %th Product price
     %th Product rate
@@ -31,21 +30,9 @@
   - @products.each do |product|
     %tr
       %td= link_to(product.name, product)
-      %td= number_to_currency(product.price)
-      %td= product.average_rating
-      %td
-=======
-    %th Food
-    %th Price
-    %th Restaurant
-    %th Order
-  - @products.each do |product|
-    %tr
-      %td= link_to(product.name, product)
       %td.price= "#{number_with_precision(product.price, precision: 2)}zł"
-      %td= product.restaurant.name
+      %td= product.average_rating
       %td.buttons
->>>>>>> 94c18211b91746e4417930e5caa27e8810ef9ef5
         - if user_signed_in?
           = link_to "Add to order", product_order_items_path(product),
             method: :post, action: :create, class: "btn btn-primary"
