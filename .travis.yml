@@ -4,7 +4,7 @@ before_script:
 deploy:
   provider: heroku
   api_key:
-    secure: <%= ENV.fetch('travis_api_key') %>
+    secure: IGrvruEdS2FfWKkOTEDtNNPZEXzlPY16SiL75dhCzKXYunqcd5q40I3+tXlWwUWXBzNKlwsOIL4IuEn8i3rRVuNq2YUxjmTFHZUWpknPDFZL8Yv4QviE07wfssgjEa6KNT40n1a2WHlwC5HvRzyBm0Ife0R9Cg6ksoRPDOu9uAE=
   app: feedme-c
   on:
     repo: netguru-training/feedme
