@@ -5,7 +5,7 @@ describe FoodFetcher::FoodFetcherFactory do
     describe "#fetch_food" do
       let(:subject) { FoodFetcher::FoodFetcherFactory.new }
       it "fetchs food and returns them size" do
-        expect(subject.fetch_food(web_name: restaurant)).to eq Restaurant.find_by_name(restaurant.capitalize).products.size
+        expect(subject.fetch_food_and_save(web_name: restaurant)).to match_array [true, Restaurant.find_by_name(restaurant.capitalize).products.size]
       end
     end
   end
@@ -20,7 +20,7 @@ describe FoodFetcher::FoodFetcherFactory do
 
   describe "other" do
     it "returns missing object error" do
-      expect{ subject.fetch_food(web_name: "other") }.to raise_error(FoodFetcher::AdapterFactory::MissingFoodObjectError)
+      expect{ subject.fetch_food_and_save(web_name: "other") }.to raise_error(FoodFetcher::AdapterFactory::MissingFoodObjectError)
     end
   end
 end
