@@ -1,0 +1,33 @@
+.panel.panel-default
+  .panel-heading
+    %h1 Listing users
+  .panel-body
+
+    .panel.panel-default
+      .table-responsive
+        %table.table.table-striped.table-hover.table-condensed
+          %tr
+            %th Name
+            %th
+            %th
+            %th
+            - @users.each do |user|
+              %tr
+              %td= user.email
+              %td
+                %span.glyphicon.glyphicon-eye-open
+                  = link_to 'Show', admin_user_path(user),  class: "lbl-size label label-default"
+                -#- if ( signed_in?(user) && current_user.admin ) || ( signed_in?(user) && current_user.id==user.id )
+              %td
+                %span.glyphicon.glyphicon-edit
+                  = link_to 'Edit', edit_admin_user_path(user),  class: "lbl-size label label-success"
+              %td
+                %span.glyphicon.glyphicon-minus-sign
+                  = link_to 'Destroy', admin_user_path(user),  class: "lbl-size label label-danger", method: :delete, data: { confirm: 'Are you sure?' }
+                -#- else
+                  %td
+                  %td
+      .panel-footer
+        = link_to "New User", new_admin_user_path, class: 'btn btn-primary'
+
+= render 'admin/panels/links'

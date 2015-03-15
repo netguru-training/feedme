@@ -15,7 +15,7 @@ module FoodFetcher
           Restaurant.find_or_create_by(name: RESTAURANT_NAME).products.create(price: price.to_f, name: name, last_version: true)
         end
       end
-      Restaurant.find_or_create_by(name: RESTAURANT_NAME).products.last_version.size
+      return true, Restaurant.find_or_create_by(name: RESTAURANT_NAME).products.last_version.size
     end
   end
 end
