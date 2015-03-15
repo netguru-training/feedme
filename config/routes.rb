@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "panels#index"
     resources :users
-    resource :restaurnats
+    resource :restaurants
     resource :products
 
   end
@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   root 'products#index'
 
   resources :foods do
-    collection do      
-      get 'fetch'     
+    collection do
+      get 'fetch'
     end
   end
 
