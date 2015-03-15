@@ -5,15 +5,16 @@
     = f.label :name_cont, "Name"
     = f.text_field :name_cont
     = f.submit "Search", class: "btn btn-submit"
-%br    
+
+%br
 - if current_user && current_user.admin?
-  .row 
+  .row
     .col-md-12
       = form_tag('/foods/fetch', method: 'get') do
         .col-md-2
           = select_tag 'restaurant', options_for_select([ 'Grzesznicy', 'Pyszne' ], 'Grzesznicy'), { :class => 'col-md-3 form-control' }
-        = submit_tag 'Fetch food', class: 'btn btn-submit'   
-%br  
+        = submit_tag 'Fetch food', class: 'btn btn-submit'
+%br
 %table.table.table-striped.table-hover#products
   %tr
     %th Product name
@@ -23,9 +24,9 @@
   - @products.each do |product|
     %tr
       %td= link_to(product.name, product)
-      %td= number_to_currency(product.price)
+      %td= "#{number_with_precision(product.price, precision: 2)} zł"
       %td
         - if user_signed_in?
-          = link_to "Add to order", product_order_items_path(product), 
+          = link_to "Add to order", product_order_items_path(product),
             method: :post, action: :create, class: "btn btn-primary"
 

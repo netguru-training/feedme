@@ -9,6 +9,7 @@
     %nav.navbar.navbar-inverse.navbar-static-top
       #navbar.collapse.navbar-collapse
         %ul.nav.navbar-nav
+          %li= link_to 'Home', root_path
           - if user_signed_in?
             %li= link_to 'Logout', destroy_user_session_path, method: :delete
             %li= link_to 'Current order', food_order_path

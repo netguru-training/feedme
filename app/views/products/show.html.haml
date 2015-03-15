@@ -1,4 +1,4 @@
 %h1= @product.name
-%p= @product.price
+%p= "#{number_with_precision(@product.price, precision: 2)} zł"
 
 =link_to "Back", products_path
