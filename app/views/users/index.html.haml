@@ -1,10 +1,12 @@
 - if @users.any?
   %h1 Listing Users
-  %table.table
-    %tr
-      %th Email
-      %th Orders
-      %th Top rated products
+  %table.table#users
+    %thead
+      %tr
+        %th Email
+        %th Orders
+        %th Top rated products
+    %tbody
     - @users.each do |user|
       %tr
         %td= link_to user.email, user_path(user.id)

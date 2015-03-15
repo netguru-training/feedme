@@ -21,7 +21,8 @@ $(document).on 'ready page:load', ->
     bSearchable: false
   $('#orders_history').dataTable
     pagingType: 'full_numbers'
-    bSearchable: false
+  $('#users').dataTable
+    pagingType: 'full_numbers'
   $('#products_filter').css("display", "none")  
   return
   
