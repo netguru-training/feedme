@@ -15,9 +15,9 @@ class OrderItemsController < ApplicationController
   def destroy
     order_item = OrderItem.find(params[:id])
     if order_item.destroy
-      redirect_to food_order_path, notice: "Removed product from order"
+      redirect_to food_orders_path, notice: "Removed product from order"
     else
-      redirect_to food_order_path, alert: "Error with removing product"
+      redirect_to food_orders_path, alert: "Error with removing product"
     end
   end
 end
