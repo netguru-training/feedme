@@ -30,7 +30,7 @@
   - @products.each do |product|
     %tr
       %td= link_to(product.name, product)
-      %td.price= "#{number_with_precision(product.price, precision: 2)}zł"
+      %td.price= number_to_currency(product.price, :unit=>'zł ')
       %td= product.average_rating
       %td.buttons
         - if user_signed_in?
