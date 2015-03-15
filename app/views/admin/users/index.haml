@@ -1,7 +1,6 @@
-%h1 List Users
 .panel.panel-default
   .panel-heading
-    %h2 Listing users
+    %h1 Listing users
   .panel-body
 
     .panel.panel-default
@@ -29,4 +28,6 @@
                   %td
                   %td
       .panel-footer
+        = link_to "New User", new_admin_user_path, class: 'btn btn-primary'
 
+= render 'admin/panels/links'
