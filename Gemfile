@@ -34,6 +34,7 @@ gem 'devise'
 gem 'cancancan'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'rails_admin'
 
 group :development do
   gem 'better_errors'

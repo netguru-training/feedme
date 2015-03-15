@@ -14,7 +14,7 @@
             %li= link_to 'Logout', destroy_user_session_path, method: :delete
             %li= link_to 'Current order', food_order_path
             - if current_user.admin?
-              %li= link_to 'Admin Panel', admin_root_path
+              %li= link_to 'Admin Panel', rails_admin_path
           - else
             %li= link_to "Sign in with Github", user_omniauth_authorize_path(:github)
             %li= link_to 'Sign in', new_user_session_path
