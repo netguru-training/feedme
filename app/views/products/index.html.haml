@@ -6,7 +6,7 @@
     = f.text_field :name_cont
     = f.submit "Search", class: "btn btn-submit"
 %br    
-- if current_user.admin?
+- if current_user && current_user.admin?
   .row 
     .col-md-12
       = form_tag('/foods/fetch', method: 'get') do
