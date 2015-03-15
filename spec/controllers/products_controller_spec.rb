@@ -2,6 +2,19 @@ require 'rails_helper'
 
 RSpec.describe ProductsController, type: :controller do
   describe 'GET index' do
+    before do
+      create_list :product, 3, restaurant_id: gdansk_restaurant.id
+    end
+
+    let(:rzeszow_restaurant) do
+      create :restaurant,
+        name: "Pizzahut", address: "Rzeszow Hetmanska", lat: 50.038005, lng: 21.996696
+    end
+    let(:gdansk_restaurant) do
+      create :restaurant,
+        name: "Chatka Puchatka", address: "Gdansk", lat: 1, lng: 1
+    end
+
     it 'renders the index template' do
       get :index
       expect(response).to render_template('index')
@@ -12,12 +25,14 @@ RSpec.describe ProductsController, type: :controller do
     end
 
     it 'filters @products by location' do
+      create_list :product, 2, restaurant_id: rzeszow_restaurant.id
       get :index, {location: 'rzeszow'}
       expect(assigns(:products).count).to eq 2
     end
 
     it 'filters @products by product name' do
-      get :index, {q: { name_cont: 'pizza'} }
+      create :product, name: "frytki", restaurant_id: gdansk_restaurant.id
+      get :index, {q: { name_cont: 'frytki'} }
       expect(assigns(:products).count).to eq 1
     end
   end
