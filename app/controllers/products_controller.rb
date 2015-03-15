@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
     @products = Product.where(restaurant_id: restaurants)
     @search = @products.search(params[:q])
     @products = @search.result
+    @search_tag_value = params[:location]
   end
 
   def show
@@ -11,7 +12,7 @@ class ProductsController < ApplicationController
   end
 
   def restaurants
-    if params[:location].empty?
+    if params[:location].blank?
       Restaurant.all
     else
       Restaurant.within(10, :origin => params[:location])

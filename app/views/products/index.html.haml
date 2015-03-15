@@ -6,9 +6,9 @@
     = f.text_field :name_cont
   .col-md-6.field
     = label_tag :location, "Location (10km radius)"
-    = text_field_tag 'location'
+    = text_field_tag 'location', @search_tag_value
   = f.submit "Search", class: "btn btn-submit"
-
+  = link_to 'Clear', root_path, class: "btn btn-warning"
 %br    
 - if current_user && current_user.admin?
   .row
