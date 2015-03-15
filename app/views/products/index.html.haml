@@ -6,12 +6,13 @@
     = f.text_field :name_cont
     = f.submit "Search", class: "btn btn-submit"
 %br    
-.row 
-  .col-md-12
-    = form_tag('/foods/fetch', method: 'get') do
-      .col-md-2
-        = select_tag 'restaurant', options_for_select([ 'Grzesznicy', 'Pyszne' ], 'Grzesznicy'), { :class => 'col-md-3 form-control' }
-      = submit_tag 'Fetch food', class: 'btn btn-submit'   
+- if current_user.admin?
+  .row 
+    .col-md-12
+      = form_tag('/foods/fetch', method: 'get') do
+        .col-md-2
+          = select_tag 'restaurant', options_for_select([ 'Grzesznicy', 'Pyszne' ], 'Grzesznicy'), { :class => 'col-md-3 form-control' }
+        = submit_tag 'Fetch food', class: 'btn btn-submit'   
 %br  
 %table.table.table-striped.table-hover#products
   %tr
