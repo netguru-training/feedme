@@ -11,6 +11,7 @@
         %ul.nav.navbar-nav
           %li= link_to 'Home', root_path
           %li= link_to 'Users', users_path
+          %li= link_to 'Top products', top_products_path
           - if user_signed_in?
             %li= link_to 'Current order', food_order_path(current_user.active_order)
             %li= link_to 'Orders history', food_orders_path

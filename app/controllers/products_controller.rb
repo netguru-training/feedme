@@ -50,7 +50,6 @@ class ProductsController < ApplicationController
     end
   end
 
-
   def unfavourite
     @product = Product.find(params[:product_id])
     @product_to_unfavourite = current_user.favourite_products.find_by_product_id(@product.id)
@@ -61,6 +60,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def top
+    @products = Product.top
+  end
+  
   private
 
   def build_rating

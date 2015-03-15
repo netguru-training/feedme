@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     # member do
     post 'ratings'
     # end
+    collection do
+      get 'top'
+    end
   end
   resources :food_orders, only: [:show, :index] do
     post 'finalize'
