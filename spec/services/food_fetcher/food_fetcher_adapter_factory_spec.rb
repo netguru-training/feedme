@@ -3,7 +3,7 @@ require 'rails_helper'
 describe FoodFetcher::AdapterFactory do
   describe "#return_adapter" do
     context "when object exists" do
-      let(:subject) { FoodFetcher::AdapterFactory.new }
+      subject { FoodFetcher::AdapterFactory.new }
       context "grzesznicy" do
         it "creates new grzesznicy class" do
           expect(subject.return_adapter("grzesznicy").class).to eq FoodFetcher::Grzesznicy
