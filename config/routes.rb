@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   resources :products do
     post '/favourite' => "products#favourite"
+    post '/unfavourite' => "products#unfavourite"
     resources :order_items, only: [:create, :destroy]
   end
   resources :food_orders, only: [:show, :index] do

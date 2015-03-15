@@ -9,6 +9,8 @@ class Ability
     else
       can :manage, OrderItem
       can :manage, FoodOrder
+      can :manage, FavouriteProduct
+      can [:favourite, :unfavourite], Product
     end
   end
 end
