@@ -1,0 +1,23 @@
+%table.table.table-striped.table-hover#products
+  %thead
+    %tr
+      %th Product name
+      %th Product price
+      %th Product rate
+      %th
+  %tbody     
+    - @products.each do |product|
+      %tr
+        %td= link_to(product.name, product)
+        %td.price= "#{number_with_precision(product.price, precision: 2)}zł"
+        %td= product.average_rating
+        %td.buttons
+          - if user_signed_in?
+            = link_to "Add to order", product_order_items_path(product),
+              method: :post, action: :create, class: "btn btn-primary"
+            - if product.favourite(current_user.id)
+              = link_to "Remove from favourites",  product_unfavourite_path(product),
+                method: :post, action: :create, class: "btn btn-warning"
+            - else
+              = link_to "Add as favourite",  product_favourite_path(product),
+                method: :post, action: :create, class: "btn btn-success"
